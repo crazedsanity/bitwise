@@ -1,0 +1,23 @@
+{
+	"name": "crazedsanity/bitwise",
+	"license": "MIT",
+	"description": "Simple library for handling bitwise permission operations",
+	"keywords": ["php", "bitwise", "permission"],
+	"homepage": "http://www.crazedsanity.com",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dan Falconer",
+			"email": "github@crazedsanity.com",
+			"homepage": "http://www.crazedsanity.com",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"classmap": ["src/"]
+	},
+	"require": {
+		"php":	">=5.3.0"
+	},
+	"minimum-stability": "dev"
+}
