@@ -1,9 +1,11 @@
 <?php
 
+use crazedsanity\bitwise\Bitwise;
+
 class TestOfBitwise extends PHPUnit_Framework_TestCase {
 	
 	public function test_isValid() {
-		$x = new crazedsanity\Bitwise;
+		$x = new Bitwise;
 		$last = null;
 		for($i=1;$i< 32; $i++) {
 			if(is_null($last)) {
@@ -23,7 +25,7 @@ class TestOfBitwise extends PHPUnit_Framework_TestCase {
 	
 	
 	public function test_nextBit() {
-		$x = new crazedsanity\Bitwise();
+		$x = new Bitwise();
 		
 		$this->assertEquals(1, $x->nextBit(null));
 		$this->assertEquals(2, $x->nextBit(1));
@@ -43,7 +45,7 @@ class TestOfBitwise extends PHPUnit_Framework_TestCase {
 	
 	
 	public function test_canAccess() {
-		$x = new crazedsanity\Bitwise();
+		$x = new Bitwise();
 		
 		$this->assertTrue($x->canAccess(1,1));
 		$this->assertTrue($x->canAccess(2,2));
@@ -69,7 +71,7 @@ class TestOfBitwise extends PHPUnit_Framework_TestCase {
 	
 	
 	public function test_addAccess() {
-		$x = new crazedsanity\Bitwise();
+		$x = new Bitwise();
 		
 		$this->assertEquals(1, $x->addAccess(null, 1));
 		$this->assertEquals(32, $x->addAccess(null,32));
@@ -82,7 +84,7 @@ class TestOfBitwise extends PHPUnit_Framework_TestCase {
 	
 	
 	public function test_removeAccess() {
-		$x = new crazedsanity\Bitwise();
+		$x = new Bitwise();
 		
 		$pRead = $x->nextBit();
 		$pWrite = $x->nextBit();

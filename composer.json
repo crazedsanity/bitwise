@@ -4,7 +4,6 @@
 	"description": "Simple library for handling bitwise permission operations",
 	"keywords": ["php", "bitwise", "permission"],
 	"homepage": "http://www.crazedsanity.com",
-	"license": "MIT",
 	"authors": [
 		{
 			"name": "Dan Falconer",

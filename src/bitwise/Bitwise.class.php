@@ -4,7 +4,7 @@
  * 
  */
 
-namespace crazedsanity;
+namespace crazedsanity\bitwise;
 /**
  * Derived from an example http://www.stevenmcmillan.co.uk/blog/2011/php-simple-permission-framework-with-bitwise-operations/
  *
@@ -37,7 +37,7 @@ class Bitwise {
 	}
 	
 	
-	public function isValid($bit) {
+	public static function isValid($bit) {
 		$retval = false;
 		if(is_int($bit)) {
 			$retval = (($bit != 0) && (($bit & ($bit - 1)) == 0));
@@ -51,7 +51,7 @@ class Bitwise {
 	
 	public function nextBit($lastBit=null) {
 		if(!is_null($lastBit)) {
-			if($this->isValid($lastBit)) {
+			if(self::isValid($lastBit)) {
 				$this->lastBit = $lastBit;
 			}
 			else {
@@ -71,13 +71,13 @@ class Bitwise {
 	
 	
 	
-	public function addAccess($originalPerm, $newPerm) {
+	public static function addAccess($originalPerm, $newPerm) {
 		if($originalPerm == 0 || is_null($originalPerm)) {
 			$retval = $newPerm;
 		}
-		elseif($this->isValid($newPerm)) {
+		elseif(self::isValid($newPerm)) {
 			$retval = $originalPerm;
-			if(!$this->canAccess($originalPerm, $newPerm)) {
+			if(!self::canAccess($originalPerm, $newPerm)) {
 				$retval = $originalPerm + $newPerm;
 			}
 		}
@@ -89,9 +89,9 @@ class Bitwise {
 	
 	
 	
-	public function canAccess($permToCheck, $hasBit) {
+	public static function canAccess($permToCheck, $hasBit) {
 		$retval = false;
-		if($this->isValid($hasBit)) {
+		if(self::isValid($hasBit)) {
 			$retval = (bool)($permToCheck & $hasBit);
 		}
 		else {
@@ -101,11 +101,11 @@ class Bitwise {
 	}
 	
 	
-	public function removeAccess($originalPerm, $removePerm) {
+	public static function removeAccess($originalPerm, $removePerm) {
 		if($originalPerm == 0 || is_null($originalPerm)) {
 			$retval = $originalPerm;
 		}
-		elseif($originalPerm < 0 || !$this->isValid($removePerm)) {
+		elseif($originalPerm < 0 || !self::isValid($removePerm)) {
 			throw new \InvalidArgumentException;
 		}
 		else {
